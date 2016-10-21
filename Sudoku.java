@@ -149,6 +149,8 @@ public class Sudoku
         return 1;
     }
 
+    //r = row position
+    //c = column position
     private static int countThrough(int r, int c){
         //Skip all non 0
         while(r < 9 && table[r][c] != 0){
@@ -164,6 +166,7 @@ public class Sudoku
             return 1;
         }
 
+        //i = number to insert into sudoku table
         for(int i = 1; i <= 9; i++){
             //set current position to number being tested
             table[r][c] = i;

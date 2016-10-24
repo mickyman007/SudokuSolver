@@ -2,12 +2,11 @@ package Sudoku;
 import java.util.*;
 /**
  * Created by Ben on 20/06/2016.
- * More comments incoming soon tm
- 
- Sudoku Rules:
- - Must be no duplicate number in each row
- - Must be no duplicate number in each column
- - Must be no duplicate number in each grid (3x3)
+ *
+ * Sudoku Rules:
+ * - Must be no duplicate number in each row
+ * - Must be no duplicate number in each column
+ * - Must be no duplicate number in each grid (3x3)
  */
 public class Sudoku
 {

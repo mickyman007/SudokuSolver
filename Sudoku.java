@@ -99,72 +99,31 @@ public class Sudoku
     }
 
     private static int panelCheck(int r, int c, int rmod, int cmod, int num){
-        //Check row location, count from c -> c + 3
-        for(int i = cmod; i < cmod+3; i++){
-            //duplicate check - skips values from current table being tested
-            if(i == c && i < 8){
-                i++;
-            }
-            //check after increment that loop condition is still true
-            if(i >=cmod+3){
-                break;
-            }
-            //duplicate check - skips values from current table being tested
-            if(i == c && i == 8){
-                break;
-            }
+        for(int threeTimes = 0; threeTimes < 3; threeTimes++){
+            //Check row location, count from c -> c + 3
+            for(int i = cmod; i < cmod+3; i++){
+                //duplicate check - skips values from current table being tested
+                if(i == c && i < 8){
+                    i++;
+                }
+                //check after increment that loop condition is still true
+                if(i >=cmod+3){
+                    break;
+                }
+                //duplicate check - skips values from current table being tested
+                if(i == c && i == 8){
+                    break;
+                }
 
-            if (table[rmod][i] == num)
-            {
-                return 0;
-            }
-        }//for
+                if (table[rmod][i] == num)
+                {
+                    return 0;
+                }
+            }//for
 
-        //Go down one row
-        rmod = rmod + 1;
-
-        for(int i = cmod; i < cmod+3; i++){
-            //duplicate check - skips values from current table being tested
-            if(i == c && i < 8){
-                i++;
-            }
-            //check after increment that loop condition is still true
-            if(i >=cmod+3){
-                break;
-            }
-            //duplicate check - skips values from current table being tested
-            if(i == c && i == 8){
-                break;
-            }
-
-            if (table[rmod][i] == num)
-            {
-                return 0;
-            }
-        }//for
-
-        //Go down one row
-        rmod = rmod + 1;
-
-        for(int i = cmod; i < cmod+3; i++){
-            //duplicate check - skips values from current table being tested
-            if(i == c && i < 8){
-                i++;
-            }
-            //check after increment that loop condition is still true
-            if(i >=cmod+3){
-                break;
-            }
-            //duplicate check - skips values from current table being tested
-            if(i == c && i == 8){
-                break;
-            }
-
-            if (table[rmod][i] == num)
-            {
-                return 0;
-            }
-        }//for
+            //Go down one row
+            rmod = rmod + 1;
+        }
         return 1;
     }
 

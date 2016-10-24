@@ -98,6 +98,11 @@ public class Sudoku
         return 1;
     }
 
+    /* Cmod/Rmod Are for testing sections of the table. There are 3 panels that go across.
+    e.g. 0 -> 2 is panel one: 1 -1  % 3 = 0 | 2 - 2 % 3 = 0 | 3 - 3 % 3 = 0
+    e.g. 3 -> 5 is panel two: 3 - 3 % 3 = 3 | 4 - 4 % 3 = 3 | 5 - 5 % 3 = 3
+    e.g. 6 -> 8 is panel three: 6 - 6 % 3 = 6 | 7 - 7 % 3 = 6 | 8 - 8 % 3 = 6
+    It gives a starting point for the panels. The params passed in (r-r%3) | (c-c%3) always give the start of the panel */
     private static int panelCheck(int r, int c, int rmod, int cmod, int num){
         for(int threeTimes = 0; threeTimes < 3; threeTimes++){
             //Check row location, count from c -> c + 3
@@ -106,11 +111,13 @@ public class Sudoku
                 if(i == c && i < 8){
                     i++;
                 }
+                
                 //check after increment that loop condition is still true
                 if(i >=cmod+3){
                     break;
                 }
-                //duplicate check - skips values from current table being tested
+                
+                //reached end of row
                 if(i == c && i == 8){
                     break;
                 }
